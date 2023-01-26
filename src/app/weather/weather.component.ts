@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
-import { Weather } from 'src/service/weather.interface';
-import { WeatherService } from 'src/service/weather.service';
+import { Weather } from 'src/app/weather/weather.interface';
 import { Subscription } from 'rxjs'
 import { ReactiveFormsModule } from '@angular/forms';
+import { WeatherService } from './weather.service';
 
 @Component({
   selector: 'app-weather',
@@ -13,20 +13,29 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class WeatherComponent implements OnInit {
 
-  getLocationSubscription?: Subscription;
-  location: string = "";
+  // getLocationSubscription?: Subscription;
+  city: string = "";
   weather: Weather[] = [];
+  weatherData: any;
+  unit = 'Celsius';
+  unitText = "Celsius";
 
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
-    this.getLocationSubscription = this.weatherService.getLocation().subscribe(weather => {
-      this.weather = weather;
+    
+  }
+
+  getWeather(city: string){
+    this.weatherService.getWeatherData(city).subscribe(data => {
+      this.weatherData = data;
+      this.weatherData.main.temp = this.convertToCelsius(this.weatherData.main.temp);
     });
   }
 
-  sendLocation(){
-
+  convertToCelsius(temp: number) {
+    return (temp - 273.15).toFixed(1);
   }
+  
 
 }

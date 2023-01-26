@@ -1,3 +1,3 @@
 export interface Weather{
-    location: string
+    city: string
 }
