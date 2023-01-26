@@ -8,5 +8,11 @@
 
 
 
-<div *ngIf="weatherData; else loading">{{ weatherData.main.temp }}</div>
+<div *ngIf="weatherData; else loading">
+    {{ weatherData.main.temp }} градусов по Цельсию
+    Чувствуется как: {{weatherData.main.feels_like}}
+    Ветер: {{weatherData.wind.speed}} м/с
+</div>
 <ng-template #loading>Enter the city and click on the button</ng-template>
+
+

@@ -30,6 +30,7 @@ export class WeatherComponent implements OnInit {
     this.weatherService.getWeatherData(city).subscribe(data => {
       this.weatherData = data;
       this.weatherData.main.temp = this.convertToCelsius(this.weatherData.main.temp);
+      this.weatherData.main.feels_like = this.convertToCelsius(this.weatherData.main.feels_like);
     });
   }
 
