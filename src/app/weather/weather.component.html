@@ -1,0 +1,12 @@
+<p>weather works!</p>
+
+<form (ngSubmit)="sendLocation()">
+    <input [(ngModel)]="location" name="location" type="text" placeholder="Your location" required>
+    <button class="btn" type="submit">Send location</button>
+</form>
+
+
+<div>
+  {{ location }}
+  <br>
+</div>
