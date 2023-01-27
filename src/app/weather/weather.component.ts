@@ -4,6 +4,10 @@ import { Weather } from 'src/app/weather/weather.interface';
 import { Subscription } from 'rxjs'
 import { ReactiveFormsModule } from '@angular/forms';
 import { WeatherService } from './weather.service';
+import { MatButton } from '@angular/material/button'
+import { MatFormFieldControl, MatFormField } from '@angular/material/form-field'
+import {MatInput} from '@angular/material/input'
+
 
 @Component({
   selector: 'app-weather',

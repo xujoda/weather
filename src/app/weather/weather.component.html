@@ -1,18 +1,19 @@
 <p>weather works!</p>
 
-<form (ngSubmit)="getWeather(city)">
+<ng-container>
+<form class="mat-form-field-type-mat-native-select" (ngSubmit)="getWeather(city)">
     <input [(ngModel)]="city" name="city" type="text" placeholder="Your location" required>
     <button class="btn" type="submit">Get weather</button>
 </form>
+</ng-container>
 
 
-
-
-<div *ngIf="weatherData; else loading">
-    {{ weatherData.main.temp }} градусов по Цельсию
-    Чувствуется как: {{weatherData.main.feels_like}}
+<div class="tab-label">
+<mat-label *ngIf="weatherData; else loading">
+    {{ weatherData.main.temp }} градусов по Цельсию <br>
+    Чувствуется как: {{weatherData.main.feels_like}} <br>
     Ветер: {{weatherData.wind.speed}} м/с
-</div>
+</mat-label>
 <ng-template #loading>Enter the city and click on the button</ng-template>
-
+</div>
 
