@@ -21,8 +21,6 @@ export class WeatherComponent implements OnInit {
   city: string = "";
   weather: Weather[] = [];
   weatherData: any;
-  unit = 'Celsius';
-  unitText = "Celsius";
 
   constructor(private weatherService: WeatherService) { }
 
